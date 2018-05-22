@@ -63,8 +63,8 @@
               </div>
             </div>
             <div class="card-footer text-muted">
-              Posted on January 1, 2017 by
-              <a href="#">Start Bootstrap</a>
+              Posted by
+              <a href="#">NL</a>
             </div>
           </div>
 
