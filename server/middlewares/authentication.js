@@ -6,21 +6,26 @@ require('dotenv').config()
 module.exports = {
   isLogin(req, res, next){
     let token = req.headers.token;
+    // console.log(token)
     jwt.verify(token, process.env.SECRET, function(err, decoded) {
       if (token){
+        // console.log('masuk sini kalo ada token')
         users
           .findOne({
             _id: decoded.userId 
           })
           .then(users => {
             if (!users){
+              // console.log('masuk sini kalo ga ada users')
               res
                 .status(401)
                 .json({
                   message: "You need to Login"
                 })
             } else {
+              // console.log('masuk sini kalo ada users', decoded)
               req.headers.decoded = decoded
+              console.log(req.headers.decoded.userId)
               next()
             }
           })
@@ -32,6 +37,7 @@ module.exports = {
               })
           })
       } else {
+        // console.log('masuk sini kalo ga ada token')
         res
           .status(403)
           .json({

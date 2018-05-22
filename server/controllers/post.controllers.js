@@ -5,9 +5,10 @@ const comments = require('../models/comment.model')
 module.exports = {
   postQuestion: (req, res) => {
     const user = req.headers.decoded.userId
+    console.log("id user q ====> ", user)
     const { title, question, tag } = req.body
     const newQuestion = new questions({ user, title, question, tag })
-
+    
     newQuestion
       .save((err, result) => {
         if (!err) {
@@ -51,13 +52,13 @@ module.exports = {
   postAnswer: (req, res) => {
     const idUser = req.headers.decoded.userId
     const { id, answer } = req.body
-
+    console.log('ini id user ===> ', idUser)
     const newAnswer = new answers({ user: idUser, answer })
-    
+    console.log(req.body)
     newAnswer
       .save()
       .then(result => {
-        console.log(result)
+        console.log("masuk kesini", result)
         questions
           .findByIdAndUpdate({
             _id: req.body.id
@@ -91,6 +92,7 @@ module.exports = {
   },
   postComment: (req, res) => {
     const idUser = req.headers.decoded.userId
+    console.log('ini id user ===> ', idUser)
     const { id, comment } = req.body
     console.log(idUser)
     const newComment = new comments({ 
