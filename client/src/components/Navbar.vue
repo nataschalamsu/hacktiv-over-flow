@@ -150,7 +150,7 @@ export default {
     loginUser: function () {
       console.log(this.login)
       axios
-        .post('http://localhost:3000/users/signin', {
+        .post('https://hacktivoverflow.herokuapp.com/users/signin', {
           email: this.login.email,
           password: this.login.password
         })
@@ -176,7 +176,7 @@ export default {
     registerUser: function () {
       console.log(this.register)
       axios
-        .post('http://localhost:3000/users/signup', {
+        .post('https://hacktivoverflow.herokuapp.com/users/signup', {
           name: this.register.name,
           email: this.register.email,
           password: this.register.password
@@ -201,7 +201,7 @@ export default {
         console.log('masuk kalo login')
         const { title, question, tag } = this.newQuestion
           axios
-            .post('http://localhost:3000/posts/addQ', {
+            .post('https://hacktivoverflow.herokuapp.com/posts/addQ', {
               user: localStorage.getItem('id'),
               title,
               question,
@@ -236,7 +236,7 @@ export default {
     },
     testAPI() {
       console.log('Welcome!  Fetching your information.... ');
-      axios.get('http://localhost:3000/loginFb', {
+      axios.get('https://hacktivoverflow.herokuapp.com/loginFb', {
         headers: { 
           fb_access_token: localStorage.getItem('fb_access_token') 
         }

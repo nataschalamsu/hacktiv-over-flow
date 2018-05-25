@@ -180,7 +180,7 @@ export default {
     postAnswer(post) {
       console.log(post)
       Axios
-        .post("http://localhost:3000/posts/addA", {
+        .post("https://hacktivoverflow.herokuapp.com/posts/addA", {
           id: post._id,
           answer: this.urAnswer
         }, {
@@ -200,7 +200,7 @@ export default {
     postComment(answer) {
       console.log(answer._id)
       Axios
-        .post("http://localhost:3000/posts/addC", {
+        .post("https://hacktivoverflow.herokuapp.com/posts/addC", {
           id: answer._id,
           comment: this.urComment
         }, {
@@ -225,7 +225,7 @@ export default {
       } else {
         console.log("boleh")
         Axios
-        .get(`http://localhost:3000/posts/upvote/${post._id}`, {
+        .get(`https://hacktivoverflow.herokuapp.com/posts/upvote/${post._id}`, {
           headers: {
             token: localStorage.getItem('token')
           }
@@ -247,7 +247,7 @@ export default {
         alert("You can't vote your own post")
       } else {
         Axios
-        .get(`http://localhost:3000/posts/downvote/${post._id}`, {
+        .get(`https://hacktivoverflow.herokuapp.com/posts/downvote/${post._id}`, {
           headers: {
             token: localStorage.getItem('token')
           }
@@ -267,7 +267,7 @@ export default {
         alert("You can't vote your own post")
       } else {
         Axios
-        .get(`http://localhost:3000/answers/upvote/${answer._id}`, {
+        .get(`https://hacktivoverflow.herokuapp.com/answers/upvote/${answer._id}`, {
           headers: {
             token: localStorage.getItem('token')
           }
@@ -287,7 +287,7 @@ export default {
         alert("You can't vote your own post")
       } else {
         Axios
-          .get(`http://localhost:3000/answers/downvote/${answer._id}`, {
+          .get(`https://hacktivoverflow.herokuapp.com/answers/downvote/${answer._id}`, {
             headers: {
               token: localStorage.getItem('token')
             }
