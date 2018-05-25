@@ -21,7 +21,7 @@ const sendEmail = new cron.CronJob({
   cronTime: '* * * * *',
   onTick: function() {
     axios
-      .post('http://localhost:3000/users/sendWelcomeEmail')
+      .post('https://hacktivoverflow.herokuapp.com/users/sendWelcomeEmail')
       .then(response => {
         console.log('email sent')
       })
